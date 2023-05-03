@@ -28,7 +28,7 @@ hSelect.addEventListener("change", function(){
     hornImg.alt = "Car horn selected";
     hAudio.src = "assets/audio/car-horn.mp3";
   }
-  else if(hSelect.value == "party-horn"){
+  else {
     hornImg.src = "assets/images/party-horn.svg";
     hornImg.alt = "Party horn selected";
     hAudio.src = "assets/audio/party-horn.mp3";
@@ -37,16 +37,34 @@ hSelect.addEventListener("change", function(){
 
 //Volume Controls
 let volControls = document.getElementById("volume");
+let volImg = document.querySelector("[src='assets/icons/volume-level-2.svg']");
 
 volControls.addEventListener("change", function(){
   //Update audio volume
   hAudio.volume = (volControls.value)/100;
 
-  //
-
+  //Update icons
+  if(volControls.value == 0){
+    volImg.src = "assets/icons/volume-level-0.svg";
+  }
+  else if(volControls.value >= 1 && volControls.value < 33){
+    volImg.src = "assets/icons/volume-level-1.svg";
+  }
+  else if (volControls.value >=33  && volControls.value < 67){
+    volImg.src = "assets/icons/volume-level-2.svg";
+  }
+  else{
+    volImg.src = "assets/icons/volume-level-3.svg";
+  }
 
 })
   
+//Play sound
+
+
+
+
+
 }
 
 
